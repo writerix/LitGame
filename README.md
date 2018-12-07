@@ -15,7 +15,7 @@ LitGame is a literature trivia game. To play, one must match the order of quotat
 
 ## Featured Technologies
 
-[Flask](http://flask.pocoo.org/docs/1.0/) A Python micro web framework
+[Flask](http://flask.pocoo.org/docs/1.0/) a Python micro web framework
 
 [WTForms](https://wtforms.readthedocs.io/en/stable/) and [Flask_WTF](https://flask-wtf.readthedocs.io/en/stable/) for form construction, validation, and CSRF protection.
 
