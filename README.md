@@ -13,7 +13,7 @@ Instructor: [Ghassem Tofighi](https://ghassem.com/)
 LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature.
 ![screenshot of game in progress](https://ibb.co/x6QPXQF)
 
-##Quick Start Guide
+## Quick Start Guide
 
 To get this Flask site running locally:
 
@@ -24,21 +24,21 @@ To get this Flask site running locally:
 4. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
 5. To run locally run: `python routes.py`
 
-##Customization
+## Customization
 To serve quotations from authors of your choice, you must populate the database table `quote`. To start remove/rename quote_db.sqlite, and run `python db_init.py`. This will create a new quote_db.sqlite file. To populate the database run `python populate_db.py` and follow the interactive prompts.
 
-##Limitations
+## Limitations
 This project can only support single author works.
 
-##Supported browsers
+## Supported browsers
 1. Latest: Chrome, Firefox, Opera, Edge, Safari
 2. Internet Explorer 11
 
-##Future improvements
-*[ ]Change the number of quotations displayed in a quiz from 3 to 2. User testing suggests this will improve the game experience.
+## Future improvements
+* [ ] Change the number of quotations displayed in a quiz from 3 to 2. User testing suggests this will improve the game experience.
 
-*[ ]Allow users to change their username, email address, and password.
+* [ ] Allow users to change their username, email address, and password.
 
-*[ ]Allow users to opt-in to displaying their scores in a publicly accessible "high score" table.
+* [ ] Allow users to opt-in to displaying their scores in a publicly accessible "high score" table.
 
-*[ ]Add support for IE 9 and 10.
+* [ ] Add support for IE 9 and 10.
