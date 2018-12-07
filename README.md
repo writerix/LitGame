@@ -20,7 +20,7 @@ To get this Flask site running locally:
 0. Make sure you have Python 3.6 available. `python --version`
 1. Download this code.
 2. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
-3. Find a suitable replacement flavicon (.ico) file. The demo flavicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement flavicon in static.
+3. Find a suitable replacement flavicon (.ico) file. The demo flavicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement flavicon in static/.
 4. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
 5. To run locally run: `python routes.py`
 
@@ -30,11 +30,11 @@ To serve quotations from authors of your choice, you must populate the database 
 ## Limitations
 This project can only support single author works.
 
-## Supported browsers
+## Supported Browsers
 1. Latest: Chrome, Firefox, Opera, Edge, Safari
 2. Internet Explorer 11
 
-## Future improvements
+## Future Improvements
 * [ ] Change the number of quotations displayed in a quiz from 3 to 2. User testing suggests this will improve the game experience.
 
 * [ ] Allow users to change their username, email address, and password.
