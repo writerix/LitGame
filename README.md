@@ -15,19 +15,13 @@ LitGame is a literature trivia game. To play, one must match the order of quotat
 
 ## Featured Technologies
 
-[Flask](http://flask.pocoo.org/docs/1.0/) a Python micro web framework
-
-[WTForms](https://wtforms.readthedocs.io/en/stable/) and [Flask_WTF](https://flask-wtf.readthedocs.io/en/stable/) for form construction, validation, and CSRF protection.
-
-[SQLAlchemy](https://www.sqlalchemy.org/) and [Flask_SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) CRUD database operations
-
-[passlib](https://passlib.readthedocs.io/en/stable/) to salt and hash user passwords
-
-[nltk](https://www.nltk.org/) for sentence tokenization 
-
-[jQuery](https://jquery.com/) for DOM manipulation
-
-[jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](http://touchpunch.furf.com/) for a touchscreen friendly sortable widget
+* [Flask](http://flask.pocoo.org/docs/1.0/) a Python micro web framework
+* [WTForms](https://wtforms.readthedocs.io/en/stable/) and [Flask_WTF](https://flask-wtf.readthedocs.io/en/stable/) for form construction, validation, and CSRF protection.
+* [SQLAlchemy](https://www.sqlalchemy.org/) and [Flask_SQLAlchemy](http://flask-sqlalchemy.pocoo.org/2.3/) CRUD database operations
+* [passlib](https://passlib.readthedocs.io/en/stable/) to salt and hash user passwords
+* [nltk](https://www.nltk.org/) for sentence tokenization 
+* [jQuery](https://jquery.com/) for DOM manipulation
+* [jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](http://touchpunch.furf.com/) for a touchscreen friendly sortable widget
 
 ## Quick Start Guide
 
