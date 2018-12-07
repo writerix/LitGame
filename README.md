@@ -14,7 +14,9 @@ LitGame is a literature trivia game. To play, one must match the order of quotat
 ![screenshot of game in progress](https://ibb.co/x6QPXQF)
 
 ##Quick Start Guide
+
 To get this Flask site running locally:
+
 0. Make sure you have Python 3.6 available.
 1. Download this code.
 2. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
