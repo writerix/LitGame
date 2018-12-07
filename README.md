@@ -10,7 +10,7 @@ Course:  [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&se
 
 Instructor: [Ghassem Tofighi](https://ghassem.com/)
 
-LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature.
+LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature. Check out the [YouTube video demo.](https://www.youtube.com/watch?v=1tvs3lUiCcI)
 ![screenshot of game in progress](screenshot.jpg "Screenshot of game in progress")
 
 ## Featured Technologies
