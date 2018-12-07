@@ -2,7 +2,7 @@
 
 Name: James Bigland
 
-Online Demo: [https://litgame.pythonanywhere.com/game](https://litgame.pythonanywhere.com/game)
+Online Demo: [https://litgame.pythonanywhere.com/](https://litgame.pythonanywhere.com/)
 
 Project Title: LitGame
 
