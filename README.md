@@ -22,6 +22,8 @@ LitGame is a literature trivia game. To play, one must match the order of quotat
 * [nltk](https://www.nltk.org/) for sentence tokenization 
 * [jQuery](https://jquery.com/) for DOM manipulation
 * [jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](http://touchpunch.furf.com/) for a touchscreen friendly sortable widget
+* [Bootstrap](https://getbootstrap.com/) for mobile friendly styling
+* [Lightbox](http://ashleydw.github.io/lightbox/) for modal image gallery
 
 ## Quick Start Guide
 
