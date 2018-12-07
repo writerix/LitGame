@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literature Game</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+  #quotations { list-style-type: none; margin: 0; padding: 0;}
+  #quotations li {
+    margin: 0 3px 3px 3px;
+    padding: 0.4em;
+    padding-bottom: 2em;
+    padding-left: 1.5em;
+    font-size: 1.4em;
+    height: 6em;
+    overflow-y: auto;
+    }
+  #quotations li span { position: absolute; margin-left: -1.3em; }
+
+  td {
+    border: 1px solid;
+  }
+  #sources {
+  }
+
+  #next_button {
+    display: none;
+  }
+
+  #td, tr{
+    height: 6em;
+    font-size: 1.4em;
+    border: #aaaaaa solid 3px;
+  }
+
+  #game {
+    background-color: rgba(255,255,255,0.7);
+  }
+
+  #statistics ul{
+    list-style: none;
+    padding-left: 0;
+  }
+</style>
+
+  <script
+			  src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous">
+  </script>
+  <script
+			  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			  crossorigin="anonymous">
+  </script>
+  <script
+         src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+  </script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script
+   src="/static/js/game.js">
+  </script>
+  <noscript>
+    For full functionality of this site it is necessary to enable JavaScript.
+    Here are the <a href="https://www.enable-javascript.com/">
+    instructions how to enable JavaScript in your web browser</a>.
+</noscript>
+
+</head>
+<body>
+    <h1><a href="{{ url_for('index') }}">LitGame</a></h1>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Account management
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <li><a id="logout_link" href="{{ url_for('logout') }}">Logout</a></li>
+        <li class="divider"></li>
+        <li><button class="btn btn-danger" type="button" onclick="confirm_delete();">Delete Account</button></li>
+      </ul>
+    </div>
+
+    <div id="options">
+      Select the author:
+      <select id="author_select">
+        {% for opt in option_list %}
+          <option value="{{opt}}">{{ opt }}</option>
+        {% endfor %}
+      </select>
+      <button type="button" class="btn btn-primary btn-md" onclick="start_game();">Start game</button>
+    </div>
+
+    <div id="game" style="display: none;">
+      <p id="user_greeting"></p>
+      <div id="statistics">
+        <ul>
+          <li id="current_score">
+            Correct: <span id="current_score_val"></span>
+          </li>
+          <li id="total_score">
+            Total correct answers: <span id="total_score_val"></span>
+          </li>
+          <li id="current_percent">
+            Percent correct answers: <span id="current_percent_val"></span>
+          </li>
+        </ul>
+        <p id="signup_prompt"><a href="{{ url_for('signup') }}">Sign up</a> to save your progress.</p>
+      </div>
+      <p id="instructions">Match the order of the quotations (left) to their sources (right).</p>
+
+		<div class="row">
+			<div class="col-sm-8">
+				<p id="author_name">Author's name: </p>
+				<ul id="quotations">
+					<li id="item1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 1</li>
+					<li id="item2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 2</li>
+					<li id="item3" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 3</li>
+				</ul>
+			</div>
+			<div class="col-sm-4">
+				<table id="sources">
+					<caption>
+						Sources:
+					</caption>
+					<tr>
+						<td id="source1">
+							Source 1
+						</td>
+					</tr>
+					<tr>
+						<td id="source2">
+							Source 2
+						</td>
+					</tr>
+					<tr>
+						<td id="source3">
+							Source 3
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-sm-12">
+			    <button id="submit_button" class="btn btn-primary btn-lg" onclick="submit_answer();">Submit</button>
+				<button id="next_button" class="btn btn-primary btn-lg" onclick="next_quiz();">Next</button>
+			</div>
+		</div>
+    </div>
+
+</body>
+</html>

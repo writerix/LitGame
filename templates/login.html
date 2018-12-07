@@ -1,0 +1,36 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<div id="main">
+    <div id="login">
+        <h2>Login:</h2>
+        {% if feedback %}
+            <p class="error-message">{{ feedback }}</p>
+        {% endif %}
+        <form method="POST" action="/login">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.email.label }}
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label }}
+                {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                {{ form.password }}
+                
+                {{form.submit(class="btn btn-primary btn-md")}}
+            </div>
+        </form>
+    </div>
+    <p>New around here? <a href="{{ url_for('signup') }}">Sign up</a></p>
+</div>    
+{% endblock %}

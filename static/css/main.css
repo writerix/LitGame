@@ -1,0 +1,24 @@
+body {
+    background-image: url("/static/img/paper-texture-1145467.jpg");
+    background-repeat: repeat;
+    background-color: #F8ECC2;
+}
+
+#main {
+    background-color: rgba(255,255,255,0.7);
+}
+
+.error-message {
+    color: red;
+}
+
+p {
+    font-size: 1.5em;
+}
+
+/*IE 11 compatibility*/
+.ekko-lightbox .modal-dialog {
+  flex: 100%!important;
+  margin-left: 0;
+  margin-right: 0;
+}

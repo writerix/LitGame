@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Literature Game</title>
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous">
+</script>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+<!--
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" id="bootstrap-css">
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" rel="stylesheet">
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js">
+</script>
+<script
+       src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js.map">
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1><a id="home_link" href="{{ url_for('index') }}">LitGame</a></h1>
+
+            <h2>So you think you know your classic literature?</h2>
+        </div>
+        <div id="main">
+            <p id="intro">Match quotations from classic literature to their sources with this trivia game.
+            Click <a href="{{url_for('guest_account')}}">here</a> to get started, <a href="{{url_for('signup')}}">create an account</a>, or <a href="{{url_for('login')}}">login</a> to save your progress.</p>
+
+            <p>Click the below images to enlarge them.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="row">
+                        <a href="/static/img/game_no_ans.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                            <img src="/static/img/game_no_ans.jpg" alt="Screenshot of game in progress." class="img-fluid">
+                        </a>
+                        <a href="/static/img/game_wrong_ans.jpg" alt="Screenshot of game in progress." data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                            <img src="/static/img/game_wrong_ans.jpg" alt="Screenshot of game in progress." class="img-fluid">
+                        </a>
+                        <a href="/static/img/game_correct_ans.jpg" data-toggle="lightbox" data-gallery="example-gallery" class="col-sm-4">
+                            <img src="/static/img/game_correct_ans.jpg" alt="Screenshot of game in progress." class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{url_for('policy')}}">Terms of Service and Privacy Policy.</a>
+            <p id="copywrite">LitGame &copy; 2018</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+    </script>
+
+</body>
+</html>
