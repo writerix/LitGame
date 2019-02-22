@@ -4,15 +4,9 @@ Name: James Bigland
 
 Online Demo: [https://litgame.pythonanywhere.com/](https://litgame.pythonanywhere.com/)
 
-Project Title: LitGame
-
-Course:  [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&section=course&mode=course&ccode=CCPS+530)
-
-Instructor: [Ghassem Tofighi](https://ghassem.com/)
+LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature. Originally started as a final project for fall 2018 session of [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&section=course&mode=course&ccode=CCPS+530) with instructor [Ghassem Tofighi](https://ghassem.com/).
 
 YouTube video demo: [https://www.youtube.com/watch?v=1tvs3lUiCcI](https://www.youtube.com/watch?v=1tvs3lUiCcI)
-
-LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature.
 
 ![screenshot of game in progress](screenshot.jpg "Screenshot of game in progress")
 
@@ -26,7 +20,7 @@ LitGame is a literature trivia game. To play, one must match the order of quotat
 * [jQuery](https://jquery.com/) for DOM manipulation
 * [jQuery UI](https://jqueryui.com/) and [jQuery UI Touch Punch](http://touchpunch.furf.com/) for a touchscreen friendly sortable widget
 * [Bootstrap](https://getbootstrap.com/) for mobile friendly styling
-* [Lightbox](http://ashleydw.github.io/lightbox/) for modal image gallery
+* [Featherlight](https://github.com/noelboss/featherlight) for modal image gallery
 
 ## Quick Start Guide
 
@@ -52,7 +46,7 @@ This project can only support single author works.
 2. Internet Explorer 11
 
 ## Future Improvements
-* [ ] Change the number of quotations displayed in a quiz from 3 to 2. User testing suggests this will improve the game experience.
+* [x] Change the number of quotations displayed in a quiz from 3 to 2. User testing suggests this will improve the game experience.
 
 * [ ] Allow users to change their username, email address, and password.
 
