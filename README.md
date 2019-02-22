@@ -6,8 +6,6 @@ Online Demo: [https://litgame.pythonanywhere.com/](https://litgame.pythonanywher
 
 LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature. Originally started as a final project for fall 2018 session of [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&section=course&mode=course&ccode=CCPS+530) with instructor [Ghassem Tofighi](https://ghassem.com/).
 
-YouTube video demo: [https://www.youtube.com/watch?v=1tvs3lUiCcI](https://www.youtube.com/watch?v=1tvs3lUiCcI)
-
 ![screenshot of game in progress](screenshot.jpg "Screenshot of game in progress")
 
 ## Featured Technologies
