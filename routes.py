@@ -152,7 +152,7 @@ def populate_quotes(author):
     sources = [item[0] for item in sources]
     shuffle(sources)
     sources = sources[:NUMQ]
-    # !!! TODO: continue fix below - maybe with dict to json
+    
     for a_source in sources:
         quotes.append(Quote.query.filter_by(author = author).filter_by(work = a_source).order_by(func.random()).first())
 
