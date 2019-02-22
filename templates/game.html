@@ -7,7 +7,9 @@
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 <link rel="stylesheet" type="text/css" href="/static/css/main.css">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <style>
   #quotations { list-style-type: none; margin: 0; padding: 0;}
   #quotations li {
@@ -20,12 +22,6 @@
     overflow-y: auto;
     }
   #quotations li span { position: absolute; margin-left: -1.3em; }
-
-  td {
-    border: 1px solid;
-  }
-  #sources {
-  }
 
   #next_button {
     display: none;
@@ -44,6 +40,14 @@
   #statistics ul{
     list-style: none;
     padding-left: 0;
+  }
+  
+  @media screen and (max-width: 600px){
+     #td, tr{
+      height: 2em;
+      font-size: 1.4em;
+      border: #aaaaaa solid 2px;
+     }
   }
 </style>
 
@@ -119,7 +123,6 @@
 				<ul id="quotations">
 					<li id="item1" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 1</li>
 					<li id="item2" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 2</li>
-					<li id="item3" class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Quote 3</li>
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -135,11 +138,6 @@
 					<tr>
 						<td id="source2">
 							Source 2
-						</td>
-					</tr>
-					<tr>
-						<td id="source3">
-							Source 3
 						</td>
 					</tr>
 				</table>

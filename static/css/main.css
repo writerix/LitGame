@@ -16,9 +16,11 @@ p {
     font-size: 1.5em;
 }
 
-/*IE 11 compatibility*/
-.ekko-lightbox .modal-dialog {
-  flex: 100%!important;
-  margin-left: 0;
-  margin-right: 0;
+.gallery-img {
+  margin: 3px;
+  border: 2px solid LightGrey;
+}
+
+.gallery-img:hover{
+  border-color: black;
 }

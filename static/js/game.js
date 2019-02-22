@@ -36,11 +36,9 @@ function populate_quotes(name){
       
       $("#item1").html(in_json.sentences[0]);
       $("#item2").html(in_json.sentences[1]);
-      $("#item3").html(in_json.sentences[2]);
 
       $("#source1").html(in_json.works[0]);
       $("#source2").html(in_json.works[1]);
-      $("#source3").html(in_json.works[2]);
 
       $('#user_greeting').text(in_json.username);
 
@@ -78,7 +76,7 @@ function start_game(){
 
 function submit_answer(){
   var works = "{\"works\": [";
-  var all_works = new Array($('#source1').html(), $('#source2').html(), $('#source3').html());
+  var all_works = new Array($('#source1').html(), $('#source2').html());
 
   for(var j = 0; j < all_works.length; j++){
     all_works[j] = (all_works[j]).replace(/\"/g, '&quot;');

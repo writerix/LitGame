@@ -31,7 +31,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #this feature is not needed
 db.init_app(app)
 app.config['SESSION_COOKIE_SAMESITE'] = 'Strict' #prevents sending cookies with all external requests
 
-NUMQ = 3
+NUMQ = 2 #number of quotes per quiz
 
 ACCOUNT_TYPE_GUEST = 0
 ACCOUNT_TYPE_REGULAR = 1
@@ -152,7 +152,7 @@ def populate_quotes(author):
     sources = [item[0] for item in sources]
     shuffle(sources)
     sources = sources[:NUMQ]
-
+    # !!! TODO: continue fix below - maybe with dict to json
     for a_source in sources:
         quotes.append(Quote.query.filter_by(author = author).filter_by(work = a_source).order_by(func.random()).first())
 
@@ -160,7 +160,7 @@ def populate_quotes(author):
         selection.work = escape(selection.work)
         selection.sentence = (selection.sentence).replace('"', '&quot;')
 
-    db_json = '''{"works": ["''' + quotes[0].work + '''", "''' + quotes[1].work + '''", "''' + quotes[2].work + '''"], "sentences": ["''' + quotes[0].sentence +'''", "''' + quotes[1].sentence + '''", "''' + quotes[2].sentence + '''"]}'''
+    db_json = '''{"works": ["''' + quotes[0].work + '''", "''' + quotes[1].work +  '''"], "sentences": ["''' + quotes[0].sentence +'''", "''' + quotes[1].sentence +  '''"]}'''
     db_json = db_json.replace('\\&quot;', '&quot;')
     db_json = db_json.replace('\&quot;','&quot;')
     db_json = db_json.replace("\\'", "'")
@@ -175,10 +175,10 @@ def populate_quotes(author):
     else:
         username = "Signed in as: " + escape(user.username)
 
-    out_json = '''{"account_type": ''' + str(user.account_type) + ''', "username": "''' + username +'''", "quiz_id": "''' + str(quiz.quiz_id) + '''", "works": ["''' + quotes[0].work + '''", "''' + quotes[1].work + '''", "''' + quotes[2].work + '''"], "sentences": ["'''
+    out_json = '''{"account_type": ''' + str(user.account_type) + ''', "username": "''' + username +'''", "quiz_id": "''' + str(quiz.quiz_id) + '''", "works": ["''' + quotes[0].work + '''", "''' + quotes[1].work + '''"], "sentences": ["'''
     shuffle(quotes)
 
-    out_json += quotes[0].sentence +'''", "''' + quotes[1].sentence + '''", "''' + quotes[2].sentence + '''"]}'''
+    out_json += quotes[0].sentence +'''", "''' + quotes[1].sentence + '''"]}'''
     out_json = out_json.replace('\\&quot;', '&quot;')
     out_json = out_json.replace('\&quot;', '&quot;')
     out_json = out_json.replace("\\'", "'")
@@ -201,17 +201,11 @@ def grade_quiz(quiz_id):
     instr = (request.data).decode('utf-8')
 
     score = 0
-    marked = [False, False, False]
-    if quiz.quotes == instr:#perfect match
-        score = 3
-        marked = [True, True, True]
-    else:
-        in_data = json.loads(instr)
-        db_data = json.loads(quiz.quotes)
-        for i in range(NUMQ):
-            if in_data["sentences"][i] == db_data["sentences"][i]:
-                score += 1
-                marked[i] = True
+    marked = [False, False]
+    if quiz.quotes == instr:#perfect match; otherwise both quotes are mis-matched
+        score = NUMQ
+        marked = [True, True]
+    
     quiz.score = score
     quiz.is_solved = True
     db.session.commit()
