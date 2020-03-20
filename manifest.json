@@ -1,32 +1,62 @@
 {
 	"authors": [{
-		"author": "Poe",
-		"works": [{
+		"author": "Poe, Edgar Allan",
+		"works": [
+			{
 				"title": "The Tell-Tale Heart",
-				"filename": "./short_stories/the-tell-tale-heart.txt"
+				"filename": "./short_stories/Poe_the_tell-tale_heart.txt"
 			},
 			{
 				"title": "The System of Dr. Tarr and Prof. Fether",
-				"filename": "./short_stories/the-system-of-dr-tarr.txt"
+				"filename": "./short_stories/Poe_the_system_of_doctor_tarr_and_professor_fether.txt"
+			},
+			{
+				"title": "The Spectacles",
+				"filename": "./short_stories/Poe_the_spectacles.txt"
+			},
+			{
+				"title": "The Masque of the Red Death",
+				"filename": "./short_stories/Poe_The_Masque_of_the_Red_Death.txt"
+			},
+			{
+				"title": "The Devil in the Belfry",
+				"filename": "./short_stories/Poe_the_devil_in_the_belfry.txt"
+			},
+			{
+				"title": "The Black Cat",
+				"filename": "./short_stories/Poe_the_black_cat.txt"
+			},
+			{
+				"title": "A Tale of the Ragged Mountains",
+				"filename": "./short_stories/Poe_a_tale_of_the_ragged_mountains.txt"
 			}
 		]
 	}, {
-		"author": "Somebody",
-		"works": [{
-				"title": "test'A",
-				"filename": "./short_stories/tale-testA.txt"
+		"author": "Montgomery, Lucy Maud",
+		"works": [
+			{
+				"title": "At the Bay Shore Farm",
+				"filename": "./short_stories/Montgomery_at_the_bay_shore_farm.txt"
 			},
 			{
-				"title": "test'B",
-				"filename": "./short_stories/tale-testB.txt"
+				"title": "An Unpremeditated Ceremony",
+				"filename": "./short_stories/Montgomery_an_unpremeditated_ceremony.txt"
 			},
 			{
-				"title": "test'C",
-				"filename": "./short_stories/tale-testC.txt"
+				"title": "A Fortunate Mistake",
+				"filename": "./short_stories/Montgomery_a_fortunate_mistake.txt"
+			}
+		]
+	}, {
+		"author": "Hawthorne, Nathaniel",
+		"works": [
+			{
+				"title": "The Birthmark",
+				"filename": "./short_stories/Hawthorne_the_birthmark.txt"
 			},
 			{
-				"title": "test'D",
-				"filename": "./short_stories/tale-testD.txt"
+				"title": "Feathertop",
+				"filename": "./short_stories/Hawthorne_feathertop.txt"
 			}
 		]
 	}]
