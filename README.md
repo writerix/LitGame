@@ -1,7 +1,5 @@
 # LitGame
 
-Name: James Bigland
-
 Online Demo: [https://litgame.pythonanywhere.com/](https://litgame.pythonanywhere.com/)
 
 LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature. Originally started as a final project for fall 2018 session of [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&section=course&mode=course&ccode=CCPS+530) with instructor [Ghassem Tofighi](https://ghassem.com/).
@@ -26,10 +24,11 @@ To get this Flask site running locally:
 
 0. Make sure you have Python 3.6 available. `python --version`
 1. Download this code.
-2. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
-3. Find a suitable replacement favicon (.ico) file. The demo favicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement favicon in static/.
-4. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
-5. To run locally run: `python routes.py`
+2. While optional, it is highly recommended to create your virtual environment, and activate it as described [here](https://docs.python.org/3.6/library/venv.html).
+3. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
+4. Find a suitable replacement favicon (.ico) file. The demo favicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement favicon in static/.
+5. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
+6. To run locally run: `python routes.py`
 
 Before deploying, be sure to change the `app.config['SECRET_KEY']` and turn off debugging by removing the optional arguments from `app.run()`.
 
@@ -49,5 +48,3 @@ This project can only support single author works.
 * [ ] Allow users to change their username, email address, and password.
 
 * [ ] Allow users to opt-in to displaying their scores in a publicly accessible "high score" table.
-
-* [ ] Add support for IE 9 and 10.
