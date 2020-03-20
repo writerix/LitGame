@@ -1,0 +1,33 @@
+{
+	"authors": [{
+		"author": "Poe",
+		"works": [{
+				"title": "The Tell-Tale Heart",
+				"filename": "./short_stories/the-tell-tale-heart.txt"
+			},
+			{
+				"title": "The System of Dr. Tarr and Prof. Fether",
+				"filename": "./short_stories/the-system-of-dr-tarr.txt"
+			}
+		]
+	}, {
+		"author": "Somebody",
+		"works": [{
+				"title": "test'A",
+				"filename": "./short_stories/tale-testA.txt"
+			},
+			{
+				"title": "test'B",
+				"filename": "./short_stories/tale-testB.txt"
+			},
+			{
+				"title": "test'C",
+				"filename": "./short_stories/tale-testC.txt"
+			},
+			{
+				"title": "test'D",
+				"filename": "./short_stories/tale-testD.txt"
+			}
+		]
+	}]
+}

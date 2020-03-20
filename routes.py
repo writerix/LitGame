@@ -2,11 +2,8 @@
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
-"""
-@author: James Bigland
-"""
 
-from flask import Flask, render_template, url_for, session, redirect, request
+from flask import Flask, render_template, url_for, session, redirect, request, jsonify
 
 from sqlalchemy.exc import IntegrityError
 from  sqlalchemy.sql.expression import func
@@ -156,16 +153,7 @@ def populate_quotes(author):
     for a_source in sources:
         quotes.append(Quote.query.filter_by(author = author).filter_by(work = a_source).order_by(func.random()).first())
 
-    for selection in quotes:
-        selection.work = escape(selection.work)
-        selection.sentence = (selection.sentence).replace('"', '&quot;')
-
-    db_json = '''{"works": ["''' + quotes[0].work + '''", "''' + quotes[1].work +  '''"], "sentences": ["''' + quotes[0].sentence +'''", "''' + quotes[1].sentence +  '''"]}'''
-    db_json = db_json.replace('\\&quot;', '&quot;')
-    db_json = db_json.replace('\&quot;','&quot;')
-    db_json = db_json.replace("\\'", "'")
-    db_json = db_json.replace('\n', '')
-    db_json = db_json.replace('\r', '')
+    db_json = json.dumps({'works':[quotes[0].work, quotes[1].work], 'sentences': [quotes[0].sentence, quotes[1].sentence]})
     quiz = Quiz(uid = user.uid, is_solved = False, quotes = db_json, score = 0)
     db.session.add(quiz)
     db.session.commit()
@@ -175,17 +163,10 @@ def populate_quotes(author):
     else:
         username = "Signed in as: " + escape(user.username)
 
-    out_json = '''{"account_type": ''' + str(user.account_type) + ''', "username": "''' + username +'''", "quiz_id": "''' + str(quiz.quiz_id) + '''", "works": ["''' + quotes[0].work + '''", "''' + quotes[1].work + '''"], "sentences": ["'''
+    out_info = {'account_type': str(user.account_type), 'username': username, 'quiz_id': str(quiz.quiz_id), 'works': [quotes[0].work, quotes[1].work]}
     shuffle(quotes)
-
-    out_json += quotes[0].sentence +'''", "''' + quotes[1].sentence + '''"]}'''
-    out_json = out_json.replace('\\&quot;', '&quot;')
-    out_json = out_json.replace('\&quot;', '&quot;')
-    out_json = out_json.replace("\\'", "'")
-    out_json = out_json.replace('\n', '')
-    out_json = out_json.replace('\r', '')
-
-    return out_json
+    out_info['sentences'] = [quotes[0].sentence, quotes[1].sentence]
+    return jsonify(out_info)
 
 
 @app.route('/grade_quiz/<quiz_id>', methods=['POST'])
@@ -202,10 +183,11 @@ def grade_quiz(quiz_id):
 
     score = 0
     marked = [False, False]
+
     if quiz.quotes == instr:#perfect match; otherwise both quotes are mis-matched
         score = NUMQ
         marked = [True, True]
-    
+
     quiz.score = score
     quiz.is_solved = True
     db.session.commit()
@@ -217,7 +199,7 @@ def grade_quiz(quiz_id):
 
     ret_dict = {"score" : score, "total_score": total_score, "percent": percent, "answers": marked}
 
-    return json.dumps(ret_dict)
+    return jsonify(ret_dict)
 
 @app.route('/game')
 def game():

@@ -3,9 +3,9 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+import sys
 import sqlite3
 
-#sqlite_file = "quote_db.sqlite"
 
 def init_db(name):
 	conn = sqlite3.connect(name)
@@ -18,4 +18,8 @@ def init_db(name):
 	conn.close()
 
 if __name__ == "__main__":
-	init_db("quote_db.sqlite")
+    if len(sys.argv) != 2:
+        db_name = "quote_db.sqlite"
+    else:
+        db_name = sys.argv[1]
+	init_db(db_name)

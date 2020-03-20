@@ -1,5 +1,24 @@
 var current_quiz_id;
 
+function escapeHtml(str) {
+    return str
+         .replace(/&/g, "&amp;")
+         .replace(/</g, "&lt;")
+         .replace(/>/g, "&gt;")
+         .replace(/"/g, "&quot;")
+         .replace(/'/g, "&#x27;");
+ }
+
+function stringifyWithSpaces(obj) {
+	var result = JSON.stringify(obj, null, 1);
+	result = result.replace(/^ +/gm, " ");
+	result = result.replace(/\n/g, "");
+	result = result.replace(/{ /g, "{").replace(/ }/g, "}");
+	result = result.replace(/\[ /g, "[").replace(/ \]/g, "]");
+	return result;
+}
+
+
 $( function() {
  $( "#quotations" ).sortable();
  $( "#quotations" ).disableSelection();
@@ -31,7 +50,6 @@ function populate_quotes(name){
     if(xhr.readyState == 4 && xhr.status == 200){
       var intext = xhr.responseText;
       var in_json = JSON.parse(intext);
-
       current_quiz_id = parseInt(in_json.quiz_id);
       
       $("#item1").html(in_json.sentences[0]);
@@ -75,34 +93,16 @@ function start_game(){
 }
 
 function submit_answer(){
-  var works = "{\"works\": [";
-  var all_works = new Array($('#source1').html(), $('#source2').html());
-
-  for(var j = 0; j < all_works.length; j++){
-    all_works[j] = (all_works[j]).replace(/\"/g, '&quot;');
-    works += "\"" + all_works[j] + "\", ";
-  }
-
-  works = works.substring(0, (works.length - 2));
-  works += "], ";
-
+  var all_works = new Array(escapeHtml($('#source1').html()), escapeHtml($('#source2').html()));
+  
   var all_sentences = [];
 
   $.each($('#quotations').find('li'), function(){
-    all_sentences.push($(this).html());
+    all_sentences.push(escapeHtml($(this).html()));
   });
-
-  var sentences = "\"sentences\": [";
-
-  for (var i = 0; i < all_sentences.length; i++){
-    all_sentences[i] = (all_sentences[i]).replace(/\"/g, '&quot;');
-    sentences += "\"" + all_sentences[i] +"\", ";
-  }
-  sentences = sentences.substring(0, (sentences.length - 2));
-  sentences += "]}";
-
-  var combined = works + sentences;
-  grading(combined);
+  attempt = {"works": all_works};
+  attempt["sentences"] = all_sentences;
+  grading(stringifyWithSpaces(attempt));
 }
 
 function grading(text){
