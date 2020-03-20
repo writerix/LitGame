@@ -1,7 +1,5 @@
 # LitGame
 
-Name: James Bigland
-
 Online Demo: [https://litgame.pythonanywhere.com/](https://litgame.pythonanywhere.com/)
 
 LitGame is a literature trivia game. To play, one must match the order of quotations and sources from classic literature. Originally started as a final project for fall 2018 session of [CCPS530](https://ce-online.ryerson.ca/ce/calendar/default.aspx?id=5&section=course&mode=course&ccode=CCPS+530) with instructor [Ghassem Tofighi](https://ghassem.com/).
@@ -49,5 +47,3 @@ This project can only support single author works.
 * [ ] Allow users to change their username, email address, and password.
 
 * [ ] Allow users to opt-in to displaying their scores in a publicly accessible "high score" table.
-
-* [ ] Add support for IE 9 and 10.
