@@ -24,10 +24,11 @@ To get this Flask site running locally:
 
 0. Make sure you have Python 3.6 available. `python --version`
 1. Download this code.
-2. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
-3. Find a suitable replacement favicon (.ico) file. The demo favicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement favicon in static/.
-4. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
-5. To run locally run: `python routes.py`
+2. While optional, it is highly recommended to create your virtual environment, and activate it as described [here](https://docs.python.org/3.6/library/venv.html).
+3. Find a suitable replacement background image. The demo background image file "[paper-texture-1145467.jpg](https://www.freeimages.com/photo/paper-texture-1145467)" is not included in this repo. Place your replacement background image in static/img.
+4. Find a suitable replacement favicon (.ico) file. The demo favicon "[favicon.ico](https://www.freefavicon.com/freefavicons/objects/iconinfo/stylized-book-152-171437.html)" is not included in this repo. Place your replacement favicon in static/.
+5. Pip install all requirements in requirements.txt: `pip install -r requirements.txt`
+6. To run locally run: `python routes.py`
 
 Before deploying, be sure to change the `app.config['SECRET_KEY']` and turn off debugging by removing the optional arguments from `app.run()`.
 
