@@ -8,18 +8,18 @@ import sqlite3
 
 
 def init_db(name):
-	conn = sqlite3.connect(name)
-	cursor = conn.cursor()
-	cursor.execute("PRAGMA foreign_keys = 1")
-	cursor.execute("CREATE TABLE quote(qid INTEGER PRIMARY KEY, author TEXT NOT NULL, work text NOT NULL, sentence text NOT NULL)")
-	cursor.execute("CREATE TABLE user(uid INTEGER PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, account_type INTEGER NOT NULL, joined INTEGER NOT NULL, latest_login INTEGER NOT NULL, pwd_hash TEXT NOT NULL)")
-	cursor.execute("CREATE TABLE quiz(quiz_id INTEGER PRIMARY KEY, uid INTEGER NOT NULL, is_solved INTEGER NOT NULL, quotes TEXT NOT NULL, score INTEGER NOT NULL, FOREIGN KEY (uid) REFERENCES user(uid) ON DELETE CASCADE)")
-	conn.commit()
-	conn.close()
+    conn = sqlite3.connect(name)
+    cursor = conn.cursor()
+    cursor.execute("PRAGMA foreign_keys = 1")
+    cursor.execute("CREATE TABLE quote(qid INTEGER PRIMARY KEY, author TEXT NOT NULL, work text NOT NULL, sentence text NOT NULL)")
+    cursor.execute("CREATE TABLE user(uid INTEGER PRIMARY KEY, username TEXT NOT NULL UNIQUE, email TEXT NOT NULL UNIQUE, account_type INTEGER NOT NULL, joined INTEGER NOT NULL, latest_login INTEGER NOT NULL, pwd_hash TEXT NOT NULL)")
+    cursor.execute("CREATE TABLE quiz(quiz_id INTEGER PRIMARY KEY, uid INTEGER NOT NULL, is_solved INTEGER NOT NULL, quotes TEXT NOT NULL, score INTEGER NOT NULL, FOREIGN KEY (uid) REFERENCES user(uid) ON DELETE CASCADE)")
+    conn.commit()
+    conn.close()
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         db_name = "quote_db.sqlite"
     else:
         db_name = sys.argv[1]
-	init_db(db_name)
+    init_db(db_name)
