@@ -1,4 +1,4 @@
-Werkzeug==0.15.5
+Werkzeug==2.2.3
 
 nltk==3.4.5
 
